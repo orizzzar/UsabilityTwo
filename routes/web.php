@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\HireRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::post('/send_resume', function (HireRequest $request) {
+   $validated = $request->validated();
+   return view('sent');
 });
